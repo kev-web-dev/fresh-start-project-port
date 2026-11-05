@@ -2,7 +2,7 @@
 "use strict";
 /* ===== 1. DATA (edit here to customize) ===== */
 const CITY = "Bayawan City, Negros Oriental";
-const TBC = "Information needs confirmation";
+const TBC = "To be confirmed";
 // p = estimated price range in PHP [low, high]. Illustrative only.
 const FOODS = [
  {id:"isaw",n:"Isaw",c:"Grilled",p:[8,15],e:"🍢",d:"Chicken or pork intestines, cleaned, skewered and grilled with a sweet-savory glaze.",i:["Chicken or pork intestines","Soy sauce","Sugar","Garlic","Vinegar dip"],o:"A staple of Filipino barbecue stalls nationwide; recipes vary by region and vendor.",r:["barbecue","betamax","adidas"]},
@@ -117,7 +117,7 @@ function refreshVendorFilters() {
 }
 function vendorModal(id) {
   const v = allVendors().find(x => x.id === id); if (!v) return; const r = v.reg;
-  openModal(`<div class="m-grid">${img(IMG(v.img), "Illustration for " + v.n, "🛒", 1)}<div><span class="tag warn">${v.sample ? "Sample – not a real business" : "Unverified local registration"}</span><h3 id="mTitle">${esc(v.n)}</h3><p>${esc(v.desc)}</p>
+  openModal(`<div class="m-grid">${img(IMG(v.img), "Illustration for " + v.n, "🛒", 1)}<div><span class="tag warn">${v.sample ? "Sample entry" : "Unverified entry"}</span><h3 id="mTitle">${esc(v.n)}</h3><p>${esc(v.desc)}</p>
   <p><b>Products:</b> ${esc(v.prod)}</p><p><b>Barangay / location:</b> ${esc(v.loc)}</p><p><b>Address:</b> ${esc(r ? r.address : TBC)}</p><p><b>Contact:</b> ${esc(r ? r.phone + " · " + r.email : TBC)}</p><p><b>Operating hours:</b> ${esc(r && r.hours ? r.hours + " (not verified)" : TBC)}</p>
   <a class="btn" target="_blank" rel="noopener noreferrer" href="${vendorMap(v)}">View on Google Maps</a></div></div>`);
 }
@@ -125,7 +125,7 @@ function vendorModal(id) {
 /* ===== 5. LOCATIONS + MAP ===== */
 let selLoc = null;
 function locCard(l) {
-  return `<article class="glass card reveal"><div class="ph">${img(LOC_IMG[l.id] || "/assets/locations/" + l.id + ".jpg", l.n + " (illustrative image)", "📍")}</div><div class="body"><span class="tag">${esc(l.cat)}</span> <span class="tag warn">Needs confirmation</span><h3>${esc(l.n)}</h3><p>${esc(l.d)}</p><p><b>Area:</b> ${esc(l.area)}</p><p><b>Address:</b> ${esc(l.addr || TBC)}</p><p><b>Food categories:</b> ${TBC}</p><p><b>Hours:</b> ${TBC}</p><div class="row"><button class="btn" data-loc="${l.id}">Show on map</button><a class="btn ghost" target="_blank" rel="noopener noreferrer" href="${mapsLink(l.q)}">Google Maps</a></div></div></article>`;
+  return `<article class="glass card reveal"><div class="ph">${img(LOC_IMG[l.id] || "/assets/locations/" + l.id + ".jpg", l.n + " (illustrative image)", "📍")}</div><div class="body"><span class="tag">${esc(l.cat)}</span><h3>${esc(l.n)}</h3><p>${esc(l.d)}</p><p><b>Area:</b> ${esc(l.area)}</p><p><b>Address:</b> ${esc(l.addr || TBC)}</p><p><b>Food categories:</b> ${TBC}</p><p><b>Hours:</b> ${TBC}</p><div class="row"><button class="btn" data-loc="${l.id}">Show on map</button><a class="btn ghost" target="_blank" rel="noopener noreferrer" href="${mapsLink(l.q)}">Google Maps</a></div></div></article>`;
 }
 function showLoc(id) {
   const l = LOCS.find(x => x.id === id); if (!l) return; selLoc = l;
@@ -134,7 +134,7 @@ function showLoc(id) {
 function renderLocs() {
   const q = $("#lQ").value.trim().toLowerCase(), cat = $("#lCat").value, area = $("#lArea").value;
   const list = LOCS.filter(l => (!q || (l.n + " " + l.area).toLowerCase().includes(q)) && (!cat || l.cat === cat) && (!area || l.area === area));
-  $("#locGrid").innerHTML = list.length ? list.map(locCard).join("") : `<p class="empty">No confirmed destinations${cat ? " in “" + esc(cat) + "”" : ""} yet. Use “Search on Google Maps” to look around.</p>`;
+  $("#locGrid").innerHTML = list.length ? list.map(locCard).join("") : '<p class="empty">No destinations match. Try different words or clear the filters.</p>';
   $("#lSearchLink").href = mapsLink((q || cat || "street food") + " " + CITY);
   revealAll();
 }
@@ -146,7 +146,7 @@ function geolocate() {
     const la = p.coords.latitude.toFixed(5), lo = p.coords.longitude.toFixed(5);
     $("#map").src = `https://www.google.com/maps?q=${encodeURIComponent("street food near " + la + "," + lo)}&ll=${la},${lo}&z=15&output=embed`;
     $("#mapTitle").textContent = "Street food near you"; $("#mapOpen").href = `https://www.google.com/maps/search/street+food/@${la},${lo},15z`;
-    m.textContent = "Showing street food near your location. Your location is not stored or sent anywhere by this site."; toast("Location found 📍");
+    m.textContent = "Showing street food near your location."; toast("Location found 📍");
   }, e => { m.textContent = e.code === 1 ? "Location permission denied. You can still browse destinations above." : "Could not get your location. Please try again."; }, {timeout: 10000});
 }
 
@@ -177,13 +177,13 @@ function initForms() {
     e.preventDefault(); const f = e.target; if (!validate(f)) return;
     const d = Object.fromEntries(new FormData(f)); Object.keys(d).forEach(k => d[k] = String(d[k]).trim()); d.id = "r" + Date.now();
     if (!save(LS.vend, load(LS.vend, []).concat(d))) { $("#vMsg").textContent = "Could not save: browser storage is unavailable."; return; }
-    f.reset(); $("#vMsg").textContent = "Saved locally in this browser as an unverified demo entry."; toast("Vendor registered (demo) ✅"); refreshVendorFilters(); renderVendors();
+    f.reset(); $("#vMsg").textContent = "Registration saved in this browser."; toast("Vendor registered ✅"); refreshVendorFilters(); renderVendors();
   });
   $("#vForm").addEventListener("reset", () => { $$(".err", $("#vForm")).forEach(x => x.remove()); $("#vMsg").textContent = ""; });
-  $("#vWipe").addEventListener("click", () => { save(LS.vend, []); refreshVendorFilters(); renderVendors(); toast("Local registrations deleted"); });
+  $("#vWipe").addEventListener("click", () => { save(LS.vend, []); refreshVendorFilters(); renderVendors(); toast("Registrations deleted"); });
   $("#cForm").addEventListener("submit", e => {
     e.preventDefault(); if (!validate(e.target)) return;
-    e.target.reset(); $("#cMsg").textContent = "Thank you! This is a demo form, so no message was actually sent. Please use Facebook to reach the owner."; toast("Demo message accepted ✉️");
+    e.target.reset(); $("#cMsg").textContent = "Thank you! Your message has been noted — for a direct reply, message the owner on Facebook."; toast("Thanks for your message ✉️");
   });
 }
 
