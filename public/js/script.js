@@ -21,7 +21,9 @@ const FOODS = [
  {id:"dynamite",n:"Dynamite",c:"Fried",p:[15,35],e:"🌶️",d:"Long green chili stuffed with cheese and meat, wrapped and fried; mild to spicy.",i:["Long green chili","Cheese","Ground meat","Spring roll wrapper"],o:"A spicy, crunchy snack also known as “Dynamite Lumpia”.",r:["lumpiang-togue","kwek-kwek"]},
  {id:"camote-cue",n:"Camote Cue",c:"Sweet Snack",p:[8,15],e:"🍠",d:"Sweet potato slices fried in caramelized brown sugar and skewered.",i:["Sweet potato (camote)","Brown sugar","Cooking oil"],o:"The sweet-potato cousin of banana cue.",r:["banana-cue","turon"]}
 ];
-const IMG = id => `assets/images/${id}.jpg`;
+const FOOD_IMG = {"adidas": "/__l5e/assets-v1/8b9f9fd3-5538-436e-a7c9-240f2bb758a3/adidas.jpg", "barbecue": "/__l5e/assets-v1/56a1c0c6-fba3-4b6d-8e41-64fe5c33bd7f/barbecue.jpg", "betamax": "/__l5e/assets-v1/f53a7bde-6117-4085-87e1-f2257c86d218/betamax.jpg", "camote-cue": "/__l5e/assets-v1/425f4cc8-c40e-48e6-ab1a-b41855e663e0/camote-cue.jpg", "dynamite": "/__l5e/assets-v1/265b3f96-bf31-42aa-81f3-5b9e57fb0288/dynamite.jpg", "halo-halo": "/__l5e/assets-v1/dd48c0db-6d74-4e79-886f-2d09bc7e1f95/halo-halo.jpg", "lumpiang-togue": "/__l5e/assets-v1/7b31e82d-53d0-4b9f-a00c-ce857f0f285f/lumpiang-togue.jpg", "sorbetes": "/__l5e/assets-v1/b06864d6-745d-4f28-a534-5915516b743d/sorbetes.jpg", "taho": "/__l5e/assets-v1/46780d5d-ab86-4267-8695-8c00c41d3e0f/taho.jpg", "isaw": "/__l5e/assets-v1/6b577ec1-a652-4efe-b803-bcc6b824d9f0/isaw.jpg"};
+const LOC_IMG = {"boulevard": "/__l5e/assets-v1/e9210863-f48b-4a29-945c-f78b6f287f94/boulevard.jpg", "galz": "/__l5e/assets-v1/b8884282-3f02-42a5-98e8-19744d2f1297/galz.jpg", "hayahay": "/__l5e/assets-v1/b64eba45-660e-4ddd-8781-a112bcdd21d0/hayahay.jpg", "market": "/__l5e/assets-v1/d5466625-de25-46a5-9a97-901a3ce9ce17/market.jpg", "paonay": "/__l5e/assets-v1/b16742c3-f47c-4e24-b343-1860c96ef47d/paonay.jpg"};
+const IMG = id => FOOD_IMG[id] || `/assets/images/${id}.jpg`;
 // Demonstration vendors. Generic, clearly fake, never presented as real or verified.
 const VENDORS = [
  {id:"s1",n:"Sample Vendor A (Demo)",loc:"Bayawan City",b:TBC,cat:"Grilled",prod:"Isaw, barbecue",desc:"Demonstration profile showing how a grilled-food vendor listing looks.",img:"isaw",sample:1},
@@ -119,7 +121,7 @@ function vendorModal(id) {
 /* ===== 5. LOCATIONS + MAP ===== */
 let selLoc = null;
 function locCard(l) {
-  return `<article class="glass card reveal"><div class="ph">${img("assets/locations/" + l.id + ".jpg", l.n + " (placeholder image)", "📍")}</div><div class="body"><span class="tag">${esc(l.cat)}</span> <span class="tag warn">Needs confirmation</span><h3>${esc(l.n)}</h3><p>${esc(l.d)}</p><p><b>Area:</b> ${esc(l.area)}</p><p><b>Address:</b> ${esc(l.addr || TBC)}</p><p><b>Food categories:</b> ${TBC}</p><p><b>Hours:</b> ${TBC}</p><div class="row"><button class="btn" data-loc="${l.id}">Show on map</button><a class="btn ghost" target="_blank" rel="noopener noreferrer" href="${mapsLink(l.q)}">Google Maps</a></div></div></article>`;
+  return `<article class="glass card reveal"><div class="ph">${img(LOC_IMG[l.id] || "/assets/locations/" + l.id + ".jpg", l.n + " (illustrative image)", "📍")}</div><div class="body"><span class="tag">${esc(l.cat)}</span> <span class="tag warn">Needs confirmation</span><h3>${esc(l.n)}</h3><p>${esc(l.d)}</p><p><b>Area:</b> ${esc(l.area)}</p><p><b>Address:</b> ${esc(l.addr || TBC)}</p><p><b>Food categories:</b> ${TBC}</p><p><b>Hours:</b> ${TBC}</p><div class="row"><button class="btn" data-loc="${l.id}">Show on map</button><a class="btn ghost" target="_blank" rel="noopener noreferrer" href="${mapsLink(l.q)}">Google Maps</a></div></div></article>`;
 }
 function showLoc(id) {
   const l = LOCS.find(x => x.id === id); if (!l) return; selLoc = l;
