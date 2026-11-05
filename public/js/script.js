@@ -28,7 +28,11 @@ const IMG = id => FOOD_IMG[id] || `/assets/images/${id}.jpg`;
 const VENDORS = [
  {id:"s1",n:"Sample Vendor A (Demo)",loc:"Bayawan City",b:TBC,cat:"Grilled",prod:"Isaw, barbecue",desc:"Demonstration profile showing how a grilled-food vendor listing looks.",img:"isaw",sample:1},
  {id:"s2",n:"Sample Vendor B (Demo)",loc:"Bayawan City",b:TBC,cat:"Fried",prod:"Fish balls, kwek-kwek",desc:"Demonstration profile showing how a fried-snack vendor listing looks.",img:"fishballs",sample:1},
- {id:"s3",n:"Sample Vendor C (Demo)",loc:"Bayawan City",b:TBC,cat:"Sweet Snack",prod:"Banana cue, turon",desc:"Demonstration profile showing how a sweet-snack vendor listing looks.",img:"turon",sample:1}
+ {id:"s3",n:"Sample Vendor C (Demo)",loc:"Bayawan City",b:TBC,cat:"Sweet Snack",prod:"Banana cue, turon",desc:"Demonstration profile showing how a sweet-snack vendor listing looks.",img:"turon",sample:1},
+// Real local vendors added by the site owner. Details to be confirmed; treat as unverified.
+ {id:"nathaniel",n:"Nathaniel",loc:"Bayawan City",b:TBC,cat:"To be confirmed",prod:TBC,desc:"Local street food vendor in Bayawan City. Products and location details need confirmation.",img:"hero-street-food"},
+ {id:"jayden",n:"Jayden",loc:"Bayawan City",b:TBC,cat:"To be confirmed",prod:TBC,desc:"Local street food vendor in Bayawan City. Products and location details need confirmation.",img:"hero-street-food"},
+ {id:"ezekiel",n:"Ezekiel",loc:"Bayawan City",b:TBC,cat:"To be confirmed",prod:TBC,desc:"Local street food vendor in Bayawan City. Products and location details need confirmation.",img:"hero-street-food"}
 ];
 // category is a browsing aid; confirm before treating as fact. No coordinates are stored for these.
 const LOCS = [
