@@ -1,0 +1,4 @@
+[{"capability":"static site code, styles, script","source":"index.html, css, js","outcome":"migrate","status":"verified","next_action":"none"},
+{"capability":"images and logos","source":"assets/","outcome":"migrate","status":"verified","next_action":"none"},
+{"capability":"schema/records/auth","source":"none (localStorage demo only)","outcome":"not present","status":"accepted","next_action":"none"},
+{"capability":"Google Maps embed and Google Fonts","source":"index.html","outcome":"preserve","status":"verified","next_action":"none"}]

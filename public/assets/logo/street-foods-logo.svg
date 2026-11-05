@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="STREET FOODS logo">
+<defs><clipPath id="c"><path d="M70 80 L250 80 L280 130 L40 130Z"/></clipPath></defs>
+<g transform="translate(20,10)">
+<rect x="60" y="60" width="6" height="150" fill="#33251D"/><rect x="254" y="60" width="6" height="150" fill="#33251D"/>
+<g clip-path="url(#c)"><rect x="30" y="70" width="260" height="70" fill="#fff"/><g fill="#B83227"><rect x="30" y="70" width="37" height="70"/><rect x="104" y="70" width="37" height="70"/><rect x="178" y="70" width="37" height="70"/><rect x="252" y="70" width="37" height="70"/></g></g>
+<path d="M40 130 Q55 152 70 130 Q85 152 100 130 Q115 152 130 130 Q145 152 160 130 Q175 152 190 130 Q205 152 220 130 Q235 152 250 130 Q265 152 280 130" fill="#B83227" stroke="#fff" stroke-width="2"/>
+<g stroke="#33251D" stroke-width="3" stroke-linecap="round"><path d="M90 168 L90 124"/><path d="M130 168 L130 124"/><path d="M170 168 L170 124"/><path d="M210 168 L210 124"/></g>
+<g fill="#FFC857" stroke="#B83227" stroke-width="2"><circle cx="90" cy="158" r="8"/><circle cx="130" cy="158" r="8"/><circle cx="170" cy="158" r="8"/><circle cx="210" cy="158" r="8"/></g>
+<rect x="50" y="178" width="220" height="56" rx="10" fill="#F97316"/><rect x="50" y="178" width="220" height="12" rx="6" fill="#FFC857"/>
+<circle cx="90" cy="246" r="20" fill="#33251D"/><circle cx="90" cy="246" r="8" fill="#FFC857"/><circle cx="230" cy="246" r="20" fill="#33251D"/><circle cx="230" cy="246" r="8" fill="#FFC857"/></g>
+<text x="340" y="150" font-family="Georgia,serif" font-weight="900" font-size="64" fill="#F97316" stroke="#B83227" stroke-width="1.5">STREET</text>
+<text x="340" y="215" font-family="Georgia,serif" font-weight="900" font-size="64" fill="#FFC857" stroke="#B83227" stroke-width="1.5">FOODS</text>
+<text x="340" y="252" font-family="Arial,sans-serif" font-weight="700" font-size="15" fill="#33251D">Taste the Streets of the Philippines!</text></svg>
