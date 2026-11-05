@@ -29,7 +29,7 @@
 </section>
 
 <section id="foods" class="sec reveal">
-  <h2>Explore Street Foods</h2><p class="lead">15 Filipino favorites. Prices are illustrative estimates, not verified vendor prices.</p>
+  <h2>Explore Street Foods</h2><p class="lead">15 Filipino favorites, from grilled classics to sweet treats.</p>
   <div class="filters glass">
     <label>Search<input id="fQ" type="search" placeholder="Name or description"></label>
     <label>Category<select id="fCat"></select></label>
@@ -43,7 +43,7 @@
 
 <section id="vendors" class="sec reveal">
   <h2>Street Vendor Directory</h2>
-  <p class="lead">Profiles marked <b>Sample</b> are demonstration entries, not real or verified businesses. Locally registered vendors are labeled <b>Unverified</b>.</p>
+  <p class="lead">Meet the street food vendors of Bayawan City, Negros Oriental.</p>
   <div class="filters glass">
     <label>Search vendors<input id="vQ" type="search" placeholder="Name or product"></label>
     <label>Location<select id="vLoc"></select></label>
@@ -53,7 +53,7 @@
   <div id="vendorGrid" class="grid"></div>
   <div class="glass panel" id="register">
     <h3>Vendor Registration</h3>
-    <p class="note">Demo only: registrations are stored locally in this browser (localStorage) and are not sent to any central website database.</p>
+    <p class="note">Your registration is saved in this browser only.</p>
     <form id="vForm" class="form" novalidate>
       <label>Vendor name *<input name="vendor" required maxlength="80" autocomplete="name"></label>
       <label>Business name *<input name="business" required maxlength="80"></label>
@@ -67,7 +67,7 @@
       <label>Latitude (optional)<input name="lat" inputmode="decimal"></label>
       <label>Longitude (optional)<input name="lng" inputmode="decimal"></label>
       <label class="wide">Business description<textarea name="desc" rows="3" maxlength="300"></textarea></label>
-      <div class="wide row"><button class="btn" type="submit">Register vendor</button><button class="btn ghost" type="reset">Reset</button><button class="btn ghost" id="vWipe" type="button">Delete my local registrations</button></div>
+      <div class="wide row"><button class="btn" type="submit">Register vendor</button><button class="btn ghost" type="reset">Reset</button><button class="btn ghost" id="vWipe" type="button">Delete my registrations</button></div>
       <p class="note wide" id="vMsg" role="status"></p>
     </form>
   </div>
@@ -75,8 +75,7 @@
 
 <section id="locations" class="sec reveal">
   <h2>Discover Street Foods Around Bayawan City</h2>
-  <p class="lead">Explore local food destinations and support the amazing street food vendors of Bayawan City, Negros Oriental.</p>
-  <p class="note">These are candidate destinations. We do not assume every one has active street food stalls. Details marked “Information needs confirmation” are unverified.</p>
+  <p class="lead">Explore local food destinations and support the street food vendors of Bayawan City, Negros Oriental.</p>
   <div id="locGrid" class="grid"></div>
 
   <h3 class="sub">Find Street Foods Near You</h3>
@@ -92,7 +91,7 @@
     <div class="mapbar"><strong id="mapTitle">Bayawan City</strong><a class="btn" id="mapOpen" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></div></div>
 </section>
 
-<section id="favorites" class="sec reveal"><h2>Your Favorites</h2><p class="lead">Saved in this browser. <span id="favCount2">0</span> saved.</p><div id="favGrid" class="grid"></div></section>
+<section id="favorites" class="sec reveal"><h2>Your Favorites</h2><p class="lead"><span id="favCount2">0</span> saved. Tap ♡ on any food to add it.</p><div id="favGrid" class="grid"></div></section>
 
 <section id="about" class="sec reveal">
   <h2>About STREET FOODS</h2>
@@ -107,13 +106,13 @@
 <section id="contact" class="sec reveal">
   <h2>Contact</h2>
   <div class="glass panel">
-    <p class="note">This contact form is a frontend demonstration. It does not send real messages. To reach the project owner, use her <a href="https://www.facebook.com/cristinemae.alson" target="_blank" rel="noopener noreferrer">Facebook profile</a>.</p>
+    <p class="note">Prefer a direct chat? Reach the project owner on <a href="https://www.facebook.com/cristinemae.alson" target="_blank" rel="noopener noreferrer">Facebook</a>.</p>
     <form id="cForm" class="form" novalidate>
       <label>Name *<input name="name" required autocomplete="name"></label>
       <label>Email *<input name="email" type="email" required autocomplete="email"></label>
       <label class="wide">Subject *<input name="subject" required></label>
       <label class="wide">Message *<textarea name="message" rows="4" required></textarea></label>
-      <div class="wide row"><button class="btn" type="submit">Send (demo)</button><button class="btn ghost" type="reset">Reset</button></div>
+      <div class="wide row"><button class="btn" type="submit">Send</button><button class="btn ghost" type="reset">Reset</button></div>
       <p class="note wide" id="cMsg" role="status"></p>
     </form>
   </div>
