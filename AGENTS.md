@@ -28,3 +28,4 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+- The Street Foods site is a ported static site: markup in src/routes/-body.html, styles/script/images under public/ (css, js, assets); edit those directly rather than rewriting as React, to preserve the original behavior.
